@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require jquery.ba-outside-events.min
+//= require owl.carousel.min
+//= require jquery.magnific-popup.min
+//= require library
+//= require scripts
