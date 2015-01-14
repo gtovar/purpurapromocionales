@@ -1,0 +1,34 @@
+<!-- GALLERY SECTION : begin -->
+<section>
+
+<!-- SECTION HEADER : begin -->
+<header>
+<div class="container">
+  <h2>Gallery</h2>
+  <p class="subtitle">See how it looks inside our studio</p>
+  <p class="more"><a href="gallery.html" class="c-button m-type-2">Enter Gallery</a></p>
+</div>
+</header>
+<!-- SECTION HEADER : end -->
+
+<!-- GALLERY : begin -->
+<div class="c-gallery m-paginated" data-items="4" data-items-desktop="4" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
+  <div class="thumb-list">
+    <div class="thumb"><a href="images/gallery_01.jpg" class="lightbox" data-lightbox-group="gallery"><img src="images/gallery_01.jpg" alt=""></a></div>
+    <div class="thumb"><a href="images/gallery_02.jpg" class="lightbox" data-lightbox-group="gallery"><img src="images/gallery_02.jpg" alt=""></a></div>
+    <div class="thumb"><a href="images/gallery_03.jpg" class="lightbox" data-lightbox-group="gallery"><img src="images/gallery_03.jpg" alt=""></a></div>
+    <div class="thumb"><a href="images/gallery_04.jpg" class="lightbox" data-lightbox-group="gallery"><img src="images/gallery_04.jpg" alt=""></a></div>
+    <div class="thumb"><a href="images/gallery_05.jpg" class="lightbox" data-lightbox-group="gallery"><img src="images/gallery_05.jpg" alt=""></a></div>
+    <div class="thumb">
+      <%= link_to image_tag("gallery_06"), asset_path("gallery_06"), class: "lightbox", :"data-lightbox-group" => "gallery" %>
+    </div>
+    <div class="thumb">
+      <%= link_to image_tag("gallery_07"), asset_path("gallery_07"), class: "lightbox", :"data-lightbox-group" => "gallery" %>
+    </div>
+    <div class="thumb"><a href="images/gallery_08.jpg" class="lightbox" data-lightbox-group="gallery"><img src="images/gallery_08.jpg" alt=""></a></div>
+  </div>
+</div>
+<!-- GALLERY : end -->
+
+</section>
+<!-- GALLERY SECTION : end -->
