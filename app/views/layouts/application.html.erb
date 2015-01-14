@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Purpura Promocionales</title>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purpura Promocionales</title>
 
-  <!-- GOOGLE FONTS : begin -->
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700%7cMontserrat:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  <!-- GOOGLE FONTS : end -->
+    <!-- GOOGLE FONTS : begin -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700%7cMontserrat:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <!-- GOOGLE FONTS : end -->
 
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "modernizr.custom.min" %>
-  <!--[if lte IE 8]>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "modernizr.custom.min" %>
+    <!--[if lte IE 8]>
     <link rel="stylesheet" type="text/css" href="library/css/oldie.css">
     <script src="library/js/respond.min.js" type="text/javascript"></script>
-  <![endif]-->
+    <![endif]-->
 
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <%= csrf_meta_tags %>
 
-  <%= yield %>
-
-  <%= javascript_include_tag "application" %>
-</body>
+  </head>
+  <body>
+    <%= render 'share/header' %>
+    <div id="wrapper">
+      <%= yield %>
+    </div>
+    <%= render 'share/footer' %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

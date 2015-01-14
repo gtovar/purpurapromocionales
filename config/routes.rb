@@ -1,4 +1,8 @@
 Purpurapromocionales::Application.routes.draw do
+  devise_for :admins
+  resources :products, path: 'productos'
+  resources :categories, path: 'categorias'
+
   get "static_pages/home"
   get "static_pages/contact"
   root 'static_pages#home'
