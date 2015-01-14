@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= stylesheet_link_tag "bootstrap3","dashboard" %>
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'share/navbar_admin' %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class=<%= cp(products_path) %> >
+            <%= link_to products_path do %>
+              <span class="badge pull-right"><%= Product.count %></span>
+              Productos
+            <% end %>
+            </li>
+            <li > 
+            <%= link_to categories_path do %>
+              <span class="badge pull-right"><%= Category.count %></span>
+              Categorias
+            <% end %>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <%= yield %>
+        </div>
+
+      </div>
+    </div>
+    <%= javascript_include_tag "bootstrap3", "docs" %>
+  </body>
+</html>
