@@ -48,4 +48,4 @@ gem 'devise'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
-
+gem 'aws-sdk'
