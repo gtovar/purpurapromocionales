@@ -1,35 +1,26 @@
-<h1>Listing products</h1>
+<%= title('Listing products') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Image</th>
-      <th>Category</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="page header">
+  <h1>Listing products
+    <%= link_to 'New Product', new_product_path, class: "btn btn-info", role:"button" %>
+    <%= link_to 'Categories', categories_path, class: "btn btn-info", role:"button" %>
+  </h1>
 
-  <tbody>
+  <div class="row">
     <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.price %></td>
-        <td><%= product.image %></td>
-        <td><%= product.category %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag(product.image_url(:thumb), :alt => "image") if product.image_url.present? %>
+          <div class="caption">
+            <h3><%= product.name %></h3>
+            <p><%= truncate(product.description, length: 250) %></p>
+            <p><%= link_to 'Show', product_path(product), class: "btn btn-success", role: "button" %>
+          <%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary", role: "button" %>
+          <%= link_to 'Destroy',product_path(product), class: "btn btn-danger", role: "button", method: :delete, data: {confirm: 'Are you sure?'} %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, class: "btn btn-info", role: "button" %>
