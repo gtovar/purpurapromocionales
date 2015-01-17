@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>
+    <%= content_for?(:title) ? yield(:title) : "Purpura Promocionales" %>
+    </title>
     <%= stylesheet_link_tag "bootstrap3","dashboard" %>
     <%= javascript_include_tag :application %>
     <%= csrf_meta_tags %>
@@ -17,7 +20,7 @@
               Productos
             <% end %>
             </li>
-            <li > 
+            <li class=<%= cp(categories_path) %> > 
             <%= link_to categories_path do %>
               <span class="badge pull-right"><%= Category.count %></span>
               Categorias
