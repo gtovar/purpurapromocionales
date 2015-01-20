@@ -1,29 +1,74 @@
-<p id="notice"><%= notice %></p>
+<!-- CORE : begin -->
+<div id="core" class="core-bg-2">
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+  <%= render partial: 'header', locals: { product: @product }  %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+        <!-- PAGE CONTENT : begin -->
+        <div id="page-content">
 
-<p>
-<strong>Image:</strong>
-<%= image_tag @product.image_url(:slide)  %>
-</p>
+          <!-- PRODUCT DETAIL : begin -->
+          <div class="product-detail">
 
-<p>
-  <strong>Category:</strong>
-  <%= @product.category %>
-</p>
+            <div class="row">
+              <div class="col-sm-6">
+                <%= render partial: 'product_images', locals: { product: @product} %>
+              </div>
+              <div class="col-sm-6">
+                <%render 'product_rating' %>
+                <!-- PRODUCT SHORT DESCRIPTION : begin -->
+                <div class="product-short-description various-content">
+                  <p><strong><%=@product.name%></strong>.<%= @product.description%></p>
+                </div>
+                <!-- PRODUCT SHORT DESCRIPTION : end -->
+                <%render 'product_info' %>
+                <%render 'add_to_cart' %>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+              </div>
+            </div>
+
+            <!-- PRODUCT TABS : begin -->
+            <div class="c-tabs product-tabs" id="product-tabs">
+              <ul class="tab-list">
+                <li class="m-active">Descriptción</li>
+              </ul>
+              <ul class="content-list">
+                <li>
+
+                <!-- PRODUCT DESCRIPTION : begin -->
+                <div class="product-description various-content">
+                  <%= @product.description %>
+
+                </div>
+                <!-- PRODUCT DESCRIPTION : end -->
+
+                </li>
+                <%= render 'product_reviews' %>
+              </ul>
+            </div>
+            <!-- PRODUCT TABS : end -->
+
+            <% render 'product_related' %>
+          </div>
+          <!-- PRODUCT DETAIL : end -->
+
+        </div>
+        <!-- PAGE CONTENT : end -->
+
+      </div>
+
+
+      <%= render 'sidebar' %>
+
+    </div>
+  </div>
+
+<% if admin_signed_in? %>
+  <%= link_to 'Edit', edit_product_path(@product), class: "c-button m-type-2", role: "button" %> |
+  <%= link_to 'Back', products_path, class: "c-button m-type-2 m-color-3" %>
+<% end %>
+</div>
+<!-- CORE : end -->

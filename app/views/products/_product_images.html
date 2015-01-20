@@ -1,0 +1,7 @@
+<!-- PRODUCT IMAGES : begin -->
+<div class="product-images">
+  <p class="main-image">
+    <%= link_to image_tag(product.image_url(:product_show), :alt => product.name), product_path(product), class: "lightbox", 'data-lightbox-group' => "product" if product.image_url.present?  %>
+  </p>
+</div>
+<!-- PRODUCT IMAGES : end -->

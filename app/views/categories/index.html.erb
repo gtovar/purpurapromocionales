@@ -1,29 +1,36 @@
-<h1>Listing categories</h1>
+<%= title('Listing categories') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="page header">
+  <h1>Listing categories
+    <%= link_to 'New Product', new_product_path, class: "btn btn-info", role:"button" %>
+    <%= link_to 'Categories', categories_path, class: "btn btn-info", role:"button" %>
+  </h1>
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.description %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% if @categories.each do |category| %>
+          <tr>
+            <td><%= category.name %></td>
+            <td><%= category.description %></td>
+            <td><%= link_to 'Show', category %></td>
+            <td><%= link_to 'Edit', edit_category_path(category) %></td>
+            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <br>
 
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+  <%= link_to 'New Category', new_category_path %>
+</div>

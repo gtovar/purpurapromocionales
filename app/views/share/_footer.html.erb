@@ -22,26 +22,30 @@
         <!-- FOOTER MENU : begin -->
         <nav class="footer-menu">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="documentation.html">Documentation</a></li>
-        </ul>
-        </nav>
-        <!-- FOOTER MENU : end -->
+          <li>
+          <% if admin_signed_in? %>
+            Conectado como <strong> <%= current_admin.email %></strong> <%= link_to "Salir",destroy_admin_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to "Administrador", new_admin_session_path %>
+        <% end %>
+        </li>
+      </ul>
+      </nav>
+      <!-- FOOTER MENU : end -->
 
+    </div>
+    <div class="col-md-6 col-md-pull-6">
+
+      <!-- FOOTER TEXT : begin -->
+      <div class="footer-text">
+        <p>Derechos reservados 2015 <a href="www.purpurapromocionales.com"> Purpurapromocionales.com</a></p>
       </div>
-      <div class="col-md-6 col-md-pull-6">
+      <!-- FOOTER TEXT : end -->
 
-        <!-- FOOTER TEXT : begin -->
-        <div class="footer-text">
-          <p>Buy this template on <a href="http://themeforest.net/user/LubosVolovar/portfolio?ref=LubosVolovar">ThemeForest.net</a></p>
-        </div>
-        <!-- FOOTER TEXT : end -->
-
-      </div>
     </div>
   </div>
-  <!-- FOOTER BOTTOM : end -->
+</div>
+<!-- FOOTER BOTTOM : end -->
 
 </div>
 </footer>

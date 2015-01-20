@@ -20,11 +20,13 @@
 
   </head>
   <body>
+    <p id="notice"><%= notice %></p>
     <%= render 'share/header' %>
     <div id="wrapper">
       <%= yield %>
+      <%= render 'share/about' %>
+      <%= render 'share/footer' %>
     </div>
-    <%= render 'share/footer' %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

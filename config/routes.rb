@@ -5,6 +5,8 @@ Purpurapromocionales::Application.routes.draw do
 
   get "static_pages/home"
   get "static_pages/contact"
+  get "conocenos" => 'static_pages#about', as: :about
+  get 'todos-productos' => 'products#index2', as: :all_products
   root 'static_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

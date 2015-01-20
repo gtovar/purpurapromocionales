@@ -1,10 +1,14 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, except: :show
-  layout "back_end_application", except: :show 
+  before_action :authenticate_admin!, except: [:show, :index2]
+  layout "back_end_application", except: [:show, :index2]
   # GET /products
   # GET /products.json
   def index
+    @products = Product.all
+  end
+
+  def index2
     @products = Product.all
   end
 

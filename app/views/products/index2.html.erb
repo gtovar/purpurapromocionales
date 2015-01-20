@@ -1,0 +1,69 @@
+<div id="core" class="core-bg-2">
+
+  <%= render partial: 'header', locals: { product: @product }  %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+
+        <!-- PAGE CONTENT : begin -->
+        <div id="page-content">
+
+          <!-- PRODUCT LIST TOOLS : begin -->
+          <div class="product-list-tools">
+            <div class="row">
+              <div class="col-sm-6">
+
+                <!-- PRODUCT LIST TITLE : begin -->
+                <h2 class="product-list-title">Todas las categorias</h2>
+                <!-- PRODUCT LIST TITLE : end -->
+
+              </div>
+            </div>
+          </div>
+          <!-- PRODUCT LIST TOOLS : end -->
+
+          <!-- PRODUCT LIST : begin -->
+          <ul class="product-list">
+
+            <% if @products.each do |product| %>
+              <!-- PRODUCT : begin -->
+              <li class="product">
+              <div class="product-inner">
+                <h3 class="product-title"><%= link_to product.name, product_path(product) %></h3>
+                <p class="product-image">
+                <%= link_to image_tag(product.image_url(:product_show), :alt => product.name), product_path(product), class: "lightbox", 'data-lightbox-group' => "product" if product.image_url.present?  %>
+                </p>
+                <div class="product-info">
+                  <%= link_to "Ver", product_path(product), class: "product-btn c-button m-type-2 m-small" %>
+                </div>
+              </div>
+              </li>
+              <% end.empty? %>
+              <li>No existen productos</li>
+            <% end %>
+            <!-- PRODUCT : end -->
+
+
+          </ul>
+          <!-- PRODUCT LIST : end -->
+
+          <!-- PAGINATION : begin -->
+          <ul class="c-pagination">
+            <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li class="m-active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+          </ul>
+          <!-- PAGINATION : end -->
+
+        </div>
+        <!-- PAGE CONTENT : end -->
+
+      </div>
+      <%= render 'sidebar' %>
+    </div>
+  </div>
+
+</div>

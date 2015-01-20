@@ -1,0 +1,45 @@
+<div class="col-md-4">
+
+
+  <!-- SIDEBAR : begin -->
+  <aside id="sidebar">
+  
+  <% render 'product_cart_list' %>
+
+  <!-- SIDEBAR LINKS : begin -->
+  <div class="sidebar-widget sidebar-links">
+    <h3 class="widget-title">Categorias</h3>
+    <div class="widget-content">
+      <ul>
+        <% if Category.all.each do |category| %>
+          <li><%= link_to category.name, root_path %></li>
+          <% end.empty? %>
+          <li>Sin categorias</li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <!-- SIDEBAR LINKS : end -->
+
+  <!-- SIDEBAR SEARCH : begin -->
+  <div class="sidebar-widget sidebar-search">
+    <h3 class="widget-title">Buscar</h3>
+    <div class="widget-content">
+      <form class="c-search-form" action="search-results.html">
+        <div class="form-fields">
+          <input type="text" data-placeholder="What to search...">
+          <button class="c-button" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- SIDEBAR SEARCH : end -->
+
+  <% render 'product_popular' %>
+  <% render 'product_tag' %>
+
+
+  </aside>
+  <!-- SIDEBAR : end -->
+
+</div>

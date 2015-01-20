@@ -7,52 +7,31 @@
     <p class="alert"><%= alert %></p>
   </span>
   </li>
-  <li class="m-active">
+  <li <%= cp2(root_path)%> >
   <span>
-  <%= link_to "Inicio", root_path %>
+    <%= link_to "Inicio", root_path %>
   </span>
   </li>
-  <li>
-  <span><a href="services.html">Productos</a></span>
+  <li <%= cp2(all_products_path)%> >
+  <span><%= link_to "Productos", all_products_path %></span> 
   <ul class="sub-menu">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="about-us.html">About Us</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="typography.html">Typography</a></li>
-    <li><a href="elements.html">Elements</a></li>
-    <li><a href="search-results.html">Search Results</a></li>
-    <li><a href="404.html">Error 404</a></li>
-    <li><a href="documentation.html">Documentation</a></li>
+    <li><%= link_to "Todos", all_products_path %></li>
+    <% if  Category.all.each do |category| %>
+      <li>
+      <%= link_to category.name, root_path %>
+      </li>
+      <% end.empty? %>
+      <li>Sin categorias</li>
+    <% end %>
   </ul>
   </li>
-  <li>
-  <span><a href="shop-list.html">Shop</a></span>
-  <ul class="sub-menu">
-    <li><a href="shop-list.html">Product List</a></li>
-    <li><a href="shop-detail.html">Product Detail</a></li>
-    <li><a href="shop-cart.html">Cart Detail</a></li>
-    <li><a href="shop-checkout.html">Checkout</a></li>
-  </ul>
-  </li>
-  <li>
-  <span><a href="blog.html">Blog</a></span>
-  <ul class="sub-menu">
-    <li><a href="blog.html">Article List</a></li>
-    <li><a href="blog-image.html">Image Article</a></li>
-    <li><a href="blog-video.html">Video Article</a></li>
-    <li><a href="blog-audio.html">Audio Article</a></li>
-    <li><a href="blog-quote.html">Quote Article</a></li>
-    <li><a href="blog-link.html">Link Article</a></li>
-    <li><a href="blog-image-disqus.html">Disqus Comments</a></li>
-  </ul>
-  </li>
-  <li>
-  <span><a href="contact.html">Contact</a></span>
-  </li>
-  <li class="m-active">
+  <li <%= cp2(about_path)%> >
   <span>
-  <%= link_to "Inicio", root_path %>
+    <%= link_to "Quienes somos", about_path %>
   </span>
+  </li>
+  <li <%= cp2(static_pages_contact_path)%> >
+  <span><%= link_to "Contacto", static_pages_contact_path %></span>
   </li>
 </ul>
 </nav>
