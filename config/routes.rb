@@ -4,7 +4,7 @@ Purpurapromocionales::Application.routes.draw do
   resources :categories, path: 'categorias'
 
   get "static_pages/home"
-  get "static_pages/contact"
+  get "contacto" => 'static_pages#contact', as: :contact
   get "conocenos" => 'static_pages#about', as: :about
   get 'todos-productos' => 'products#index2', as: :all_products
   root 'static_pages#home'
