@@ -50,3 +50,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'aws-sdk'
 gem "bugsnag"
+
+gem 'friendly_id', '~> 5.0.0'
+
+

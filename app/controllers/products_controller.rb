@@ -1,11 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!, except: [:show, :index2]
+  before_action :authenticate_admin!, except: [:show, :index2,:index]
   layout "back_end_application", except: [:show, :index2]
   # GET /products
   # GET /products.json
   def index
+    if admin_signed_in?
     @products = Product.all
+    else
+      redirect_to action: 'index2'
+    end
   end
 
   def index2
@@ -69,11 +73,13 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :image, :category_id)
+      params.require(:product).permit(:name, :description, :price, :image, :category_id, :short)
     end
+
+
 end
