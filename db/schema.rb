@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150114020045) do
 
   create_table "products", force: true do |t|
     t.string   "name"
+    t.text     "short"
     t.text     "description"
     t.string   "price"
     t.string   "image"
